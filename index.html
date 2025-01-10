@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Car with Message</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0e0e0;
+            margin: 0;
+            overflow: hidden; /* Prevents scrolling */
+            padding-bottom: 200px; /* Adds 200px padding at the bottom */
+            flex-direction: column; /* Arranges items vertically */
+        }
+
+        #message {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px; /* Adds space between the message and the car */
+        }
+
+        #car {
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(135deg, #2f3b50, #4e5d6d); /* Car's body gradient */
+            border-radius: 15px;
+            bottom: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Shadow for car */
+            animation: moveCar 2s ease-in-out infinite alternate; /* Back-and-forth movement */
+            transition: transform 0.3s ease-in-out; /* For smooth hover transition */
+        }
+
+        /* Car's wheels */
+        .wheel {
+            position: absolute;
+            bottom: -12px;
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Wheel shadow */
+        }
+
+        #wheel-left {
+            left: 25px;
+        }
+
+        #wheel-right {
+            right: 25px;
+        }
+
+        /* Animation for the car's movement (15cm to the left and right) */
+        @keyframes moveCar {
+            0% {
+                transform: translateX(-567px); /* Start 15 cm (567px) to the left of center */
+            }
+            100% {
+                transform: translateX(567px); /* Move 15 cm (567px) to the right of center */
+            }
+        }
+
+        /* Hover effect to enlarge the car */
+        #car:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="message">Moving Car</div> <!-- The message added here -->
+    <div id="car">
+        <!-- Car's wheels -->
+        <div id="wheel-left" class="wheel"></div>
+        <div id="wheel-right" class="wheel"></div>
+    </div>
+</body>
+</html>
